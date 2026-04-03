@@ -1,7 +1,7 @@
 export function generatePrompt(name = 'Friend', wakeTime = '07:00', wakeReason = 'No goal provided') {
-	if (typeof wakeTime !== 'string' || typeof wakeReason !== 'string') {
-		throw new Error(`Invalid parameters: wakeTime=${typeof wakeTime}, wakeReason=${typeof wakeReason}`);
-	}
+	// if (typeof wakeTime !== 'string' || typeof wakeReason !== 'string') {
+	// 	throw new Error(`Invalid parameters: wakeTime=${typeof wakeTime}, wakeReason=${typeof wakeReason}`);
+	// }
 
 	if (process.env.DEV_MODE) {
 		const prompt = [
