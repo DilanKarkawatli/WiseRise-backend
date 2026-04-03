@@ -48,7 +48,9 @@ router.post("/generate-alarm", async (req, res) => {
 		});
 
 	} catch (error) {
+		const { name, wakeTime, wakeReason, voiceKey } = req.body;
 		console.error("Error generating alarm:", error);
+		console.error("Parameters received:", { name, wakeTime, wakeReason, voiceKey });
 		res.status(500).json({ error: "Failed to generate alarm" });
 	}
 });
