@@ -25,29 +25,23 @@ router.get("/alarms/:fileKey/download-url", async (req, res) => {
 });
 
 router.post("/generate-alarm", async (req, res) => {
+	console.log("BODY: ", req.body);
 	try {
-		const { name, wakeTime, voiceKey } = req.body;
+		const { name, wakeTime, voiceKey, wakeReason} = req.body;
 
-		console.log("Received alarm generation request with:", { name, wakeTime, voiceKey });
+		console.log(req.body);
+
+		console.log("Received alarm generation request with:", { name, wakeTime, voiceKey, wakeReason });
 
 		// Plan to add name and wakeTime from user input
-		const prompt = generatePrompt(name, wakeTime);
-		const text = await generateMessage(prompt);
+		const prompt = generatePrompt(name, wakeTime, wakeReason);
+		const text = await generateMessage(prompt);	
 		const audio = await generateSpeech(text, voiceKey);
-
-		// const now = new Date();
-		// const dateStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 
 		const ts = new Date().toISOString().replace(/[:.]/g, '-');
 		const filename = `${voiceKey}-${name}-${ts}-alarm.mp3`;
-		// const filename = `${voiceKey}-${name}-${now.toISOString()}-alarm.mp3`;
-		// const url = await uploadAudio(audio, filename);
 		await uploadAudio(audio, filename);
 
-		// res.json({ 
-		// 	audio_url: url,
-		// 	file_key: filename,
-		// });
 		res.json({ 
 			file_key: filename,
 		});

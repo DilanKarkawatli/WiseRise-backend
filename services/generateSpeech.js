@@ -1,7 +1,6 @@
 import { ElevenLabsClient } from "elevenlabs";
 import outputVoiceID from "./outputVoiceID.js";
 
-
 // const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const elevenlabs = new ElevenLabsClient({
 	apiKey: process.env.ELEVENLABS_API_KEY
@@ -20,7 +19,7 @@ export async function generateSpeech(text, voiceKey) {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({
-				model_id: 'eleven_multilingual_v2',
+				model_id: 'eleven_flash_v2_5', // eleven_multilingual_v2
 				Accept: 'audio/mpeg',
 				voice_settings: {
 					stability: 0.8,
@@ -35,10 +34,7 @@ export async function generateSpeech(text, voiceKey) {
 	const contentType = response.headers.get("content-type");
 	console.log("Content-Type:", contentType);
 
-	// /*
 	// Buffer is a Node.js class that represents binary data. 
 	// We can use it to store the audio data returned by the ElevenLabs API.
-	// */
-
 	return Buffer.from(await response.arrayBuffer());
 }
