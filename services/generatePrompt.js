@@ -1,9 +1,13 @@
 export function generatePrompt(name = 'Friend', wakeTime = '07:00', wakeReason = 'No goal provided') {
+	if (typeof wakeTime !== 'string' || typeof wakeReason !== 'string') {
+		throw new Error(`Invalid parameters: wakeTime=${typeof wakeTime}, wakeReason=${typeof wakeReason}`);
+	}
+
 	if (process.env.DEV_MODE) {
 		const prompt = [
-			`Your goal is: ${wakeReason}`
+			`Your goal is: ${wakeReason}`,
 			`Write a personalized morning greeting for ${name}.`,
-			`The user has set a wake up time of ${wakeTime} and their reason for waking up is: ${wakeReason}.`
+			`The user has set a wake up time of ${wakeTime} and their reason for waking up is: ${wakeReason}.`,
 			`Do these:
 			- Wise and assertive
 			- Not too nice, tough and brutal.
@@ -23,7 +27,7 @@ export function generatePrompt(name = 'Friend', wakeTime = '07:00', wakeReason =
 	} else {
 		const prompt = [
 			`Write a personalized morning greeting for ${name}.`,
-			`The user has set a wake up time of ${wakeTime} and their reason for waking up is: ${wakeReason}.`
+			`The user has set a wake up time of ${wakeTime} and their reason for waking up is: ${wakeReason}.`,
 			`Do these:
 			- Start slowly, and tell the user something morning related, like observing something.
 			- Tell word for word the user's goal, so they get a reminder of what's important
