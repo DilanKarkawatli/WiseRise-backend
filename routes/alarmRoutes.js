@@ -25,7 +25,7 @@ router.get("/alarms/:fileKey/download-url", async (req, res) => {
 });
 
 router.post("/generate-alarm", async (req, res) => {
-	console.log("BODY TEST: ", req.body);
+	console.log("BODY TEST: ");
 	try {
 		const { name, wakeTime, voiceKey, wakeReason} = req.body;
 
