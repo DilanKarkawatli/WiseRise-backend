@@ -3,10 +3,10 @@ Based on user input, outputs the correct voice id
 */
 const VOICE_CATALOG = {
 //   svenska: { key: "svenska", label: "Exempel: Svenska", providerVoiceId: "rjyvihvKM3mIEn2BPC6H" },
-  skånska: { key: "skånska", label: "Exempel: Skånska", providerVoiceId: "rjyvihvKM3mIEn2BPC6H" }, //
-  assistant: { key: "assistant", label: "Personal Assistant Vibes", providerVoiceId: "O5cOSvUD7fKfUyUaF0g4" }, //
-  motivational: { key: "motivational", label: "Motivational", providerVoiceId: "YURxXazL6LhRZieWQX0A" }, //
-  tv: { key: "tv", label: "TV Narrator", providerVoiceId: "DAAREHIiqwAq4ddreFw4" }, //
+  skånska: { key: "skånska", label: "Exempel: Skånska", providerVoiceId: "Z2ic84BAXoRvhU0mvJIa" }, //
+  assistant: { key: "assistant", label: "Personal Assistant Vibes", providerVoiceId: "EkK5I93UQWFDigLMpZcX" }, //
+  motivational: { key: "motivational", label: "Motivational", providerVoiceId: "NNl6r8mD7vthiJatiJt1" }, //
+  tv: { key: "tv", label: "TV Narrator", providerVoiceId: "d9tzkwmOSCqZGcUH4clQ" }, //
   caine: { key: "caine", label: "Michael Caine", providerVoiceId: "7p1Ofvcwsv7UBPoFNcpI" }, // Only demo from elevenlabs
   feynman: { key: "feynman", label: "Richard Feynman", providerVoiceId: "7p1Ofvcwsv7UBPoFNcpI" },
   stan_lee: { key: "stan_lee", label: "Stan Lee", providerVoiceId: "7p1Ofvcwsv7UBPoFNcpI" },
